@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Blog List</h2>
+
+    <ul>
+        {% for blog in completed_blogs %}
+        <h3>{{blog.blog_title}}</h3>
+        <p>{{blog.name}}</p>
+        <hr>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

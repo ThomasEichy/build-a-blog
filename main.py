@@ -57,6 +57,14 @@ def new_post():
 
     return render_template('newpost.html',title="New Post!")
 
+@app.route('/blogpost', methods=['POST', 'GET'])
+def single_post():
+    blog_id = request.args.get('id')
+    blog_record = db.session.query(Blog).filter_by(id=blog_id).one()
+
+    return render_template('blogpost.html', title=blog_record.blog_title,
+    body=blog_record.name)
+
 
 if __name__ == '__main__':
     app.run()
